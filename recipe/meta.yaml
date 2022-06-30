@@ -1,0 +1,28 @@
+{% set name = "prophet-pystan-model" %}
+{% set version = "1.0.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  path: ../
+
+build:
+  number: 0
+  script: python $RECIPE_DIR/build.py
+  skip: true  # [not (osx or linux64 or aarch64)]
+
+requirements:
+  host:
+    - python
+    - prophet =={{ version }}
+  run:
+    - python
+    - prophet =={{ version }}
+
+about:
+  summary: Prophet PyStan Model for Snowpark
+  description: |
+      Places the compiled Prophet model into the site-packages directory
+      so the Snowpark sandbox can properly access it.
