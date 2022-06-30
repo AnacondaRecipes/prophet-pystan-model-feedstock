@@ -5,3 +5,6 @@ channels:
 upload_channels:
   - services
   - sfe1ed40
+build_parameters:
+  - "--no-error-overlinking"
+  - "--no-error-overdepending"
